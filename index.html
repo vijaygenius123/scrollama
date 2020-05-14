@@ -7,14 +7,25 @@
     <title>Scrollama</title>
     <script src="https://unpkg.com/intersection-observer"></script>
     <script src="https://unpkg.com/scrollama"></script>
+
+    <style>
+        .step {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="step" data-step="a">Hello</div>
+    <div class="step" data-step="b">World</div>
+    <div class="step" data-step="c">Hello World</div>
+
 
     <script>
         const scroller = scrollama();
-        console.log(scroller)
+
     </script>
 </body>
 
