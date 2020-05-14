@@ -12,20 +12,53 @@
         .step {
             width: 100vw;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .red {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+
+        .green {
+            background-color: rgba(0, 255, 0, 0.5);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="step" data-step="a">Hello</div>
-    <div class="step" data-step="b">World</div>
-    <div class="step" data-step="c">Hello World</div>
+    <div class="step" data-step="a">
+        <h1>Hello</h1>
+    </div>
+    <div class="step" data-step="b">
+        <h1>World</h1>
+    </div>
+    <div class="step" data-step="c">
+        <h1>Hello World</h1>
+    </div>
 
 
     <script>
         const scroller = scrollama();
 
+        scroller.setup({
+            step: ".step"
+        })
+            .onStepEnter(response => {
+                const { element, index, direction } = response
+                element.classList.add("green")
+                element.classList.remove("red")
+
+            })
+            .onStepExit(response => {
+                const { element, index, direction } = response
+                element.classList.add("red")
+                element.classList.remove("green")
+            });
+
+        window.addEventListener("resize", scroller.resize);
     </script>
 </body>
 
